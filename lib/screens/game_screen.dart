@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:cara_coroa/screens/result_screen.dart';
 import 'package:flutter/material.dart';
 
 class GameScreen extends StatefulWidget {
@@ -8,6 +11,14 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+  void _showResult() {
+    List<String> items = ["cara", "coroa"];
+    int number = Random().nextInt(items.length);
+    String result = items[number];
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen(value: result)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +31,7 @@ class _GameScreenState extends State<GameScreen> {
           children: [
             Image.asset("assets/images/logo.png"),
             GestureDetector(
-              onTap: _exibirResultado,
+              onTap: _showResult,
               child: Image.asset("assets/images/botao_jogar.png"),
             )
           ],

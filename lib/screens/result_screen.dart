@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatefulWidget {
-  const ResultScreen({Key? key}) : super(key: key);
+  final String value;
+
+  const ResultScreen({Key? key, required this.value}) : super(key: key);
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -10,6 +12,14 @@ class ResultScreen extends StatefulWidget {
 class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
+    String imagePath;
+
+    if (widget.value == "cara") {
+      imagePath = "assets/images/moeda_cara.png";
+    } else {
+      imagePath = "assets/images/moeda_coroa.png";
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xff61bd86),
       //backgroundColor: Color.fromRGBO(255, 204, 128, 1),
@@ -18,7 +28,7 @@ class _ResultScreenState extends State<ResultScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(caminhoImagem),
+            Image.asset(imagePath),
             GestureDetector(
               onTap: () {
                 Navigator.pop(context);
