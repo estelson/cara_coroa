@@ -24,18 +24,21 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       backgroundColor: const Color(0xff61bd86),
       //backgroundColor: Color.fromRGBO(255, 204, 128, 1),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset("assets/images/logo.png"),
-            GestureDetector(
-              onTap: _showResult,
-              child: Image.asset("assets/images/botao_jogar.png"),
-            )
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Column(
+            children: [
+              Image.asset("assets/images/logo.png"),
+              const SizedBox(height: 30),
+              GestureDetector(
+                onTap: _showResult,
+                child: Image.asset("assets/images/botao_jogar.png"),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

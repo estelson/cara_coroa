@@ -23,20 +23,23 @@ class _ResultScreenState extends State<ResultScreen> {
     return Scaffold(
       backgroundColor: const Color(0xff61bd86),
       //backgroundColor: Color.fromRGBO(255, 204, 128, 1),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset(imagePath),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Image.asset("assets/images/botao_voltar.png"),
-            )
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Column(
+            children: [
+              Image.asset(imagePath),
+              const SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Image.asset("assets/images/botao_voltar.png"),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
